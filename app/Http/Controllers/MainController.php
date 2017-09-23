@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Posts;
+use App\Post;
 
 class MainController extends Controller
 {
     public function index() {
-        $posts = Posts::with('author', 'category')->get();
+        $posts = Post::latest()->with('author', 'category')->get();
 
         return view('main.main', compact('posts'));
+    }
+
+    public function about() {
+        return view('main.about');
     }
 }
