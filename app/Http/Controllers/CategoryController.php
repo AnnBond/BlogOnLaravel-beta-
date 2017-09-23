@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Posts;
+use App\Post;
 use App\Categories;
 
 class CategoryController extends Controller
@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
     public function categoryById($id) {
         $title = 'Laravel';
-        $posts = Posts::with('author', 'category')
+        $posts = Post::with('author', 'category')
             ->where('category_id', '=', $id)
             ->orderBy('created_at', 'desc')
             ->get();
