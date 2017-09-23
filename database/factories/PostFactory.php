@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 use App\User;
 use App\Categories;
 
-$factory->define(App\Posts::class, function (Faker $faker) {
+$factory->define(App\Post::class, function (Faker $faker) {
 
     return [
     'title' => $faker->text(40),
