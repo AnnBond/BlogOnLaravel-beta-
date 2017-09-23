@@ -2,7 +2,6 @@
 
 @section('content')
 
-<div class="container">
     <div class="post singlePost">
         <div class="card">
             <div class="row" style="padding: 20px;">
@@ -18,7 +17,34 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="comments">
+            <ul class="list-group"></ul>
+            @foreach($post->comments as $comment)
+                <li class="list-group-item">
+                    {{--<span>{{ $comment->author->name }}</span>--}}
+                    <strong style="float: right;">{{ $comment->updated_at->diffForHumans() }}</strong>
+                    <p>{{ $comment->body }}</p>
+                </li>
+            @endforeach
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" action="/posts/{{ $post->id }}/comments" >
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="body">Typing your comment here:</label>
+                        <textarea class="form-control" name="body" id="body" cols="30" rows="10" placeholder="Your comment here: " required></textarea>
+                    </div>
+                    @include('layouts.errors')
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add comment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
+
 
 @endsection
