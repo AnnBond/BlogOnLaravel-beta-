@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/', 'MainController@index' )->name('main');
-Route::get('/posts/{post}', 'PostsController@singlePost' )->name('singlePost');
+Route::get('/', 'MainController@index')->name('main');
+Route::get('/posts/create/', 'PostsController@create')->name('create');
+Route::get('/posts/{post}', 'PostsController@show')->name('singlePost');
 Route::get('/categories', 'CategoryController@categories')->name('categories');
 Route::get('/category/{id}', 'CategoryController@categoryById')->name('categoryById');
+Route::get('/about', 'MainController@about')->name('about');
+Route::post('/posts', 'PostsController@store');
+Route::post('/posts/{post}/comments', 'CommentsController@store');
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
