@@ -14,8 +14,13 @@
 <body>
 @include('layouts.header')
 
+<div class="wrapper">
+    <div class="container">
 @yield('content')
+    </div>
+</div>
 
+@include('layouts.footer')
 
 </body>
 </html>
