@@ -33,6 +33,11 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
+                @if(Auth::check())
+                <li class="nav-item">
+                    <a href="#" class="nav-link">hello, {{ Auth::user()->name }} </a>
+                </li>
+                    @endif
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
