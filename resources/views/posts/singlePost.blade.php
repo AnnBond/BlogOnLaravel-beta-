@@ -20,11 +20,11 @@
         <hr>
         <div class="comments">
             <ul class="list-group"></ul>
-            @foreach($post->comments as $comment)
+        @foreach($post->comments as $comment)
                 <li class="list-group-item">
-                    {{--<span>{{ $comment->author->name }}</span>--}}
                     <strong style="float: right;">{{ $comment->updated_at->diffForHumans() }}</strong>
                     <p>{{ $comment->body }}</p>
+                    <i>Author: {{ $comment->author->name }}</i>
                 </li>
             @endforeach
         </div>
@@ -45,6 +45,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection
