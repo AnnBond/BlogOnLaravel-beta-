@@ -9,7 +9,7 @@
             <input type="text" class="form-control" id="title" name="title">
         </div>
         <div class="form-group">
-            <label for="description">Descriotion:</label>
+            <label for="description">Description:</label>
             <textarea class="form-control"  name="description" id="description" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
