@@ -6,7 +6,7 @@
         <div class="card">
             <div class="row" style="padding: 20px;">
                 <div class="card-body col-10">
-                    <p class="date">{{ $post->created_at }}</p>
+                    <span>Posted by: {{$post->author->name }} </span> <span class="date">{{ $post->created_at->diffForHumans() }}</span>
                     <h4 class="card-title">{{ $post->title }}</h4>
                     <p class="cost">{{ $post->cost }}</p>
                     <p class="cost">Category:
