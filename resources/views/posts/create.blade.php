@@ -16,6 +16,10 @@
             <label for="cost">Cost</label>
             <input type="number" class="form-control" id="cost" placeholder="200" name="cost">
         </div>
+        <div class="form-group">
+            <label for="category_id">category</label>
+            <input type="number" class="form-control" id="category_id" placeholder="200" name="category_id">
+        </div>
         @include('layouts.errors')
         <div class="form-group">
             <button type="submit" class="btn btn-primary">Publish</button>
