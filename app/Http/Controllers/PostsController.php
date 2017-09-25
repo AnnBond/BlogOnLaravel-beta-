@@ -19,7 +19,7 @@ class PostsController extends Controller
     public function store()
     {
         $this->validate(request(), [
-           'title' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'cost' => 'required'
         ]);
