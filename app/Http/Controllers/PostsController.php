@@ -7,8 +7,9 @@ use App\Post;
 
 class PostsController extends Controller
 {
-    public function index () {
-
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index', 'show', 'login']);
     }
 
     public function create() {
@@ -23,13 +24,17 @@ class PostsController extends Controller
             'description' => 'required',
             'cost' => 'required'
         ]);
+
+        /*auth()->user()->publish(
+            new Post(request(['title', 'description', 'cost', 'category_id' => 12 ]))
+        );*/
         //dd(request(['title', 'description']));
         $post = new Post;
 
         Post::create([
            'title' => request('title'),
-            'slug' => request('title'),
-            'user_id' => '5',
+            /*'slug' => request('title'),*/
+            'user_id' => auth()->id(),
             'category_id' => '5',
             'description' => request('description'),
             'cost' => request('cost')
