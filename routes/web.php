@@ -24,3 +24,11 @@ Route::post('/posts/{post}/comments', 'CommentsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/register', 'AuthController@create');
+Route::post('/register', 'AuthController@store');
+
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
+
