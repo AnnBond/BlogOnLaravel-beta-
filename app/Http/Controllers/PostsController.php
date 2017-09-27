@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -13,8 +14,8 @@ class PostsController extends Controller
     }
 
     public function create() {
-
-        return view('posts.create');
+        $categories = Categories::all();
+        return view('posts.create', compact('categories'));
     }
 
     public function store()
@@ -29,13 +30,14 @@ class PostsController extends Controller
             new Post(request(['title', 'description', 'cost', 'category_id' => 12 ]))
         );*/
         //dd(request(['title', 'description']));
-        $post = new Post;
+
+
 
         Post::create([
            'title' => request('title'),
             /*'slug' => request('title'),*/
             'user_id' => auth()->id(),
-            'category_id' => '5',
+            'category_id' => request('category_id'),
             'description' => request('description'),
             'cost' => request('cost')
         ]);
