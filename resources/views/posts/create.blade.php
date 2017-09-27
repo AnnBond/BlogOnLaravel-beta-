@@ -17,8 +17,12 @@
             <input type="number" class="form-control" id="cost" placeholder="200" name="cost">
         </div>
         <div class="form-group">
-            <label for="category_id">category</label>
-            <input type="number" class="form-control" id="category_id" placeholder="200" name="category_id">
+            <label for="addCategory">Category</label>
+            <select class="form-control" name="category_id" id="addCategory">
+                @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
         </div>
         @include('layouts.errors')
         <div class="form-group">
