@@ -15,12 +15,12 @@ class CategoryController extends Controller
         return view('categories', compact('categories'));
     }
     public function categoryById($id) {
-        $title = 'Laravel';
+
         $posts = Post::with('author', 'category')
             ->where('category_id', '=', $id)
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('categoryById', compact('title', 'posts'));
+        return view('categoryById', compact('posts'));
     }
 }
